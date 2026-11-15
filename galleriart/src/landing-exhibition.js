@@ -1,0 +1,24 @@
+import {esc} from './domain.js';
+import {renderSpacePreview} from './space-preview.js';
+
+export function renderLanding(works,icon){
+ const byId=id=>works.find(work=>work.id===id);
+ const art=id=>{const work=byId(id);return `<img src="${esc(work.image)}" alt="${esc(work.title)}" width="${work.imageWidth}" height="${work.imageHeight}" decoding="async">`;};
+ const folds=Array.from({length:24},(_,i)=>`<span class="curtain-fold" style="--fold-i:${i};--fold-position:${(i/23*100).toFixed(4)}%;--fold-delay:${(23-i)*3}ms"></span>`).join('');
+ return `<section class="exhibition-intro" data-exhibition data-state="closed" aria-label="갤러리아트 입장">
+  <div class="exhibition-sticky" tabindex="-1">
+   <div class="exhibition-museum"><div class="museum-room exhibition-room"><img class="museum-architecture" src="/uikyu-project-portfolio/galleriart/visuals/museum-burgundy-2026-10-14.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async"><div class="museum-set-wall"><div class="museum-display">${[['cypress','concepts','컨셉'],['self','unknown','무제'],['venice','auctions','경매']].map(([id,path,label])=>`<a class="museum-art-track museum-art-link" href="#/${path}" data-exhibition-link aria-label="${label}"><div class="museum-gold-frame ${id==='self'?'museum-portrait':''}">${art(id)}</div><span class="museum-label">${label}</span></a>`).join('')}</div></div></div><span class="exhibition-scene-note">미술관의 분위기를 담은 가상 전시 공간입니다.</span></div>
+   <div class="exhibition-copy" aria-hidden="true"><p class="eyebrow">A PLACE FOR YOUR FIRST ART</p><h1 id="landing-title">당신의 일상에,<br>그림 한 점.</h1><p>좋은 그림을 만나는 일,<br>어렵지 않아도 괜찮아요.</p><span class="landing-signature">작품에서 시작되는 발견, 갤러리아트</span></div>
+   <div class="curtain-stage" aria-hidden="true"><div class="curtain-panel curtain-left">${folds}</div><div class="curtain-panel curtain-right">${folds}</div><div class="curtain-valance"></div></div>
+   <button type="button" class="exhibition-enter" data-exhibition-enter aria-label="커튼을 열고 갤러리아트 입장"><span class="exhibition-enter-label">전시 입장 ${icon('arrow')}</span></button>
+   <button type="button" class="exhibition-next" data-exhibition-next hidden aria-label="스크롤로 갤러리아트 이야기 펼치기"><span>스크롤하며, 이야기를 만나보세요.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 3v17M5 13l7 7 7-7"/></svg></button>
+  </div>
+ </section>
+ <div class="exhibition-rest" data-exhibition-rest hidden>
+  <section id="landing-story" class="landing-chapter landing-discover" data-exhibition-discover aria-labelledby="landing-discover-title"><div class="discovery-sticky"><div class="landing-copy"><p class="eyebrow">01 — DISCOVER</p><h2 id="landing-discover-title">이름보다 먼저,<br>당신의 마음에 닿도록.</h2><p>유명한 이름보다, 나에게 좋은 그림.<br>설명은 잠시 뒤에 읽어도 괜찮아요.<br>갤러리아트는 작품을 먼저 만나는 곳입니다.</p></div><figure class="landing-chapter-art"><img src="${byId('cypress').image}" alt="${byId('cypress').title}" width="${byId('cypress').imageWidth}" height="${byId('cypress').imageHeight}" loading="lazy" decoding="async"><figcaption>색과 붓질을 따라, 당신만의 시선으로.</figcaption></figure></div></section>
+  <section class="landing-contemplation" data-exhibition-bridge aria-label="미술관에서 나의 공간으로"><div class="contemplation-sticky"><div class="contemplation-moment"><p class="eyebrow">02 — A MOMENT WITH ART</p><h2>작품 앞에 서는 순간.</h2><p>그림을 바라보는 시간만큼은,<br>조금 느려져도 괜찮아요.</p></div><div class="contemplation-space" aria-hidden="true"><p class="eyebrow">ART, IN YOUR EVERYDAY LIFE</p><h2 id="space-title">그림이 머무는,<br>나의 공간을 상상해 보세요.</h2><p>거실에서, 일터에서, 좋아하는 카페에서.<br>그림 한 점이 바꾸는 분위기를 천천히 느껴보세요.</p></div></div></section>
+  ${renderSpacePreview(works,{heading:false})}
+  <section class="landing-paths" aria-labelledby="landing-paths-title"><div class="landing-paths-head landing-reveal"><p class="eyebrow">03 — YOUR OWN WAY</p><h2 id="landing-paths-title">좋아하는 그림을 만나는<br>세 가지 방법.</h2></div><div class="landing-paths-grid"><article class="landing-reveal"><span class="landing-path-number">01</span><h3>컨셉</h3><p>풍경, 빛, 일상.<br>좋아하는 주제와 분위기를 따라.</p></article><article class="landing-reveal"><span class="landing-path-number">02</span><h3>무제</h3><p>작가의 이름은 잠시 뒤에.<br>오직 작품과 나의 시선으로.</p></article><article class="landing-reveal"><span class="landing-path-number">03</span><h3>경매</h3><p>새로운 소장을 만나는 방식.<br>지금은 모의 입찰로 흐름을 경험해요.</p></article></div></section>
+  <section class="landing-invitation" aria-labelledby="landing-invitation-title"><div class="landing-invitation-haze" aria-hidden="true"><img src="${byId('cypress').image}" alt="" loading="lazy" decoding="async"></div><div class="landing-reveal"><p class="eyebrow">YOUR FIRST ART STARTS HERE</p><h2 id="landing-invitation-title">이제, 당신의 그림을<br>만나볼 시간.</h2><a class="landing-explore" href="#/gallery">갤러리아트 둘러보기 ${icon('arrow')}</a><p class="landing-preview-note">현재는 공개 소장품을 활용한 로컬 시제품입니다.<br>예시 작품·가격·모의 입찰이며 실제 거래는 이루어지지 않습니다.</p></div></section>
+ </div>`;
+}

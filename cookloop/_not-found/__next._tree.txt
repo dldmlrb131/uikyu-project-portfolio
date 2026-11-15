@@ -1,0 +1,4 @@
+:HL["/uikyu-project-portfolio/cookloop/_next/static/chunks/1hgu46cy34mib.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"S6PYiCWhSiV5dBs5a60ip","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

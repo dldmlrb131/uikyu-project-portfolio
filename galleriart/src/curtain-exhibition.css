@@ -1,0 +1,15 @@
+/* Rail tension leads; the lower velvet follows with a short, damped sway. */
+.curtain-stage{container-type:inline-size;contain:layout style paint;position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:5;display:block}
+.curtain-panel{width:54%;background:none;animation:none;translate:none;filter:drop-shadow(6px 6px 15px #17050b80)}
+.curtain-left{left:0;--curtain-slide-x:-11cqw}.curtain-right{right:0;scale:-1 1;--curtain-slide-x:11cqw}
+.curtain-fold{position:absolute;top:-3px;bottom:-12px;left:calc(var(--fold-i)*100%/24);width:calc(100%/24 + 2px);background-image:linear-gradient(90deg,#21030b12,transparent 45%,#16020924),url('/uikyu-project-portfolio/galleriart/visuals/velvet-curtain-2026-10-14.png');background-size:100% 100%,2400% 100%;background-position:center,var(--fold-position) center;transform-origin:top center;--fold-travel:calc(var(--fold-i)*-2.02cqw);translate:0 0;animation:none}
+.curtain-valance{animation:none;height:20px}
+.exhibition-intro:is([data-state=opening],[data-state=open]) .curtain-panel{animation:curtain-panel-slide 1640ms 60ms cubic-bezier(.28,.05,.2,1) both;will-change:translate}
+.exhibition-intro:is([data-state=opening],[data-state=open]) .curtain-fold{animation:curtain-fold-gather 1700ms calc(40ms + var(--fold-delay)) cubic-bezier(.26,.02,.16,1) both,curtain-fold-drape 1700ms calc(40ms + var(--fold-delay)) both}
+.exhibition-intro:is([data-state=opening],[data-state=open]) .curtain-valance{animation:valance-settle 1600ms 40ms cubic-bezier(.26,.02,.16,1) both}
+.exhibition-intro[data-state=open] .curtain-stage{display:none}
+@keyframes curtain-panel-slide{from{translate:0 0}to{translate:var(--curtain-slide-x) 0}}
+@keyframes curtain-fold-gather{from{translate:0 0}to{translate:var(--fold-travel) 0}}
+@keyframes curtain-fold-drape{0%{transform:skewX(0) translateY(0);animation-timing-function:cubic-bezier(.3,0,.3,1)}28%{transform:skewX(2.2deg) translateY(7px);animation-timing-function:ease-out}56%{transform:skewX(-.7deg) translateY(2px);animation-timing-function:ease-in-out}78%{transform:skewX(.25deg) translateY(1px);animation-timing-function:ease-out}100%{transform:skewX(0) translateY(0)}}
+@keyframes valance-settle{from{translate:0 0}to{translate:0 -64px}}
+@media(prefers-reduced-motion:reduce){.exhibition-intro[data-state=closed] .curtain-stage{display:block}.exhibition-intro:not([data-state=closed]) .curtain-stage{display:none}.curtain-panel,.curtain-fold,.curtain-valance{animation:none!important}}

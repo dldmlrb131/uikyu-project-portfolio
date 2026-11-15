@@ -1,0 +1,16 @@
+/* Separate folds gather at the rail instead of sliding one flat rectangle. */
+.curtain-stage{container-type:inline-size;contain:layout style paint}
+.curtain-panel{width:54%;background:none;animation:none;translate:none;filter:drop-shadow(6px 6px 15px #17050b80)}
+.curtain-left{left:0}.curtain-right{right:0;scale:-1 1}
+.curtain-fold{position:absolute;top:0;bottom:-3px;left:calc(var(--fold-i) * 100% / 24);width:calc(100% / 24 + 2px);background-image:linear-gradient(90deg,#21030b12,transparent 45%,#16020924),url('/uikyu-project-portfolio/galleriart/visuals/velvet-curtain-2026-10-14.png');background-size:100% 100%,2400% 100%;background-position:center,var(--fold-position) center;transform-origin:top center;--fold-travel:calc(var(--fold-i) * -2.10cqw);animation:curtain-fold-gather 5400ms calc(320ms + var(--fold-delay)) cubic-bezier(.44,.02,.18,1) both,curtain-fold-drape 5400ms calc(320ms + var(--fold-delay)) ease-in-out both}
+.curtain-valance{animation:valance-settle 5700ms 320ms cubic-bezier(.44,.02,.18,1) both;height:24px}
+.hero-museum-shell{animation:gallery-unveil 4400ms 500ms cubic-bezier(.22,1,.36,1) both}
+.curtain-hero .landing-hero-copy>.eyebrow{animation-delay:1350ms}
+.curtain-hero .landing-title-line:first-child{animation-delay:1600ms}.curtain-hero .landing-title-line:last-child{animation-delay:1830ms}
+.curtain-hero .landing-hero-copy>p:not(.eyebrow){animation-delay:2100ms}.curtain-hero .landing-signature{animation-delay:2300ms}
+.museum-hero-room .museum-art-track{animation-duration:1700ms;animation-delay:1800ms}.museum-hero-room .museum-art-track:nth-child(2){animation-delay:2050ms}.museum-hero-room .museum-art-track:nth-child(3){animation-delay:2300ms}
+.hero-scene-note{animation-delay:2600ms}
+@keyframes curtain-fold-gather{from{translate:0 0}to{translate:var(--fold-travel) 0}}
+@keyframes curtain-fold-drape{0%,100%{transform:skewX(0) translateY(0)}35%{transform:skewX(.35deg) translateY(3px)}70%{transform:skewX(-.15deg) translateY(-1px)}90%{transform:skewX(.08deg) translateY(1px)}}
+@keyframes valance-settle{from{translate:0 0}to{translate:0 -5px}}
+@media(prefers-reduced-motion:reduce){.curtain-stage{display:none}.landing-main *{animation:none!important}}
