@@ -1,0 +1,26 @@
+{
+  "name": "국토지리정보원 연속수치지형도 도로경계",
+  "sourceLayer": "ngii_roads",
+  "sourceCrs": "EPSG:5179",
+  "webCrs": "EPSG:4326",
+  "bounds": [
+    126.7649448,
+    37.43021261,
+    127.18379471,
+    37.6943274
+  ],
+  "minzoom": 13,
+  "maxzoom": 15,
+  "sourceFeatureCount": 252350,
+  "tileFeatureReferences": 799136,
+  "tileCount": 973,
+  "classCounts": {
+    "A0013110": 221719,
+    "A0013118": 30631
+  },
+  "invalidGeometriesRepaired": 0,
+  "generatedFrom": "N3A_A0010000_11.shp",
+  "sourceScale": "1:5,000 continuous digital topographic map",
+  "sourceUpdated": "2024-04-19",
+  "attribution": "국토지리정보원 연속수치지형도"
+}
