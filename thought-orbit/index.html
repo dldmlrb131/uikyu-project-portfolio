@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="개인 지식 작업 공간 Thought Orbit의 공개 예시를 살펴보세요.">
+<title>Thought Orbit | 공개 시연</title>
+<style>
+:root{color-scheme:dark;--ink:#f4f1ff;--muted:#beb9d7;--border:#403761;--violet:#ded2ff;--wash:#231d3b}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 70% 8%,#362352,transparent 54%),#141126;color:var(--ink);font:16px/1.65 system-ui,"Malgun Gothic",sans-serif}
+a{color:inherit}header,main,footer{width:min(1020px,calc(100% - 40px));margin:auto}
+header{padding:27px 0;display:flex;justify-content:space-between;gap:15px;align-items:center}
+header a,footer a{font-size:.9rem;text-underline-offset:.26em}
+strong.brand{letter-spacing:.16em;color:var(--violet);font-size:.85rem}
+.hero{padding:clamp(32px,8vw,114px) 0 32px}
+h1{font-size:clamp(2.3rem,7vw,5.9rem);line-height:1.05;letter-spacing:-.075em;margin:0 0 24px}
+p{margin:0}.hero p{font-size:clamp(1rem,2.2vw,1.24rem);color:var(--muted);max-width:42ch}
+.workspace{border:1px solid var(--border);border-radius:24px;background:#1b172d;overflow:hidden}
+nav{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border);padding:14px 16px}
+button{font:inherit;color:inherit;padding:9px 14px;border:1px solid transparent;border-radius:100px;background:transparent;cursor:pointer}
+button:hover,button[aria-pressed=true]{border-color:var(--border);background:var(--wash);color:var(--violet)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.panel{padding:clamp(20px,5vw,48px);min-height:310px}
+h2{font-size:1.5rem;margin:0 0 8px;letter-spacing:-.035em}
+h3{margin:0 0 7px;font-size:1.05rem}
+.panel p{color:var(--muted)}.panel p+div,.panel p+ol{margin-top:22px}
+.cards,.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{padding:17px 18px;border-radius:16px;border:1px solid var(--border);background:var(--wash)}
+.kind{display:block;color:var(--violet);font-size:.78rem;letter-spacing:.04em;margin-bottom:8px}
+ol{padding-left:21px}li+li{margin-top:10px}footer{padding:24px 0 50px;color:var(--muted);font-size:.9rem}
+@media(max-width:630px){.cards,.flow{grid-template-columns:1fr}header,main,footer{width:calc(100% - 30px)}}
+</style>
+</head>
+<body>
+<header><strong class="brand">THOUGHT ORBIT</strong><a href="../">포트폴리오로 돌아가기</a></header>
+<main>
+<section class="hero">
+<h1>흩어진 생각에서<br>다음 행동으로.</h1>
+<p>Thought Orbit은 기록을 모으고, 관계를 찾고, 다음에 할 일로 연결하는 개인 지식 작업 공간입니다.</p>
+</section>
+<section class="workspace" aria-label="Thought Orbit 기능 시연">
+<nav aria-label="시연 단계">
+<button type="button" aria-pressed="true" aria-controls="records">기록 모으기</button>
+<button type="button" aria-pressed="false" aria-controls="connections">관계 연결하기</button>
+<button type="button" aria-pressed="false" aria-controls="actions">할 일로 옮기기</button>
+</nav>
+<section class="panel" id="records">
+<h2>하나의 질문을 여러 형식으로 기록합니다.</h2>
+<p>같은 주제에 대한 관찰, 참고 자료, 검토 과제를 한 공간에서 살펴봅니다.</p>
+<div class="cards">
+<article class="card"><span class="kind">관찰 메모</span><h3>층을 바꾸는 길은 어디에 있을까?</h3><p>낯선 실내에서는 같은 목적지의 다른 층을 고르기 쉽다.</p></article>
+<article class="card"><span class="kind">참고 자료</span><h3>지도에 표시할 이동 수단</h3><p>계단과 승강기처럼 서로 다른 이동 수단을 구분한다.</p></article>
+<article class="card"><span class="kind">검토 과제</span><h3>이동 조건을 바꿔 비교하기</h3><p>계단을 쓸 수 있을 때와 없을 때 경로를 각각 확인한다.</p></article>
+</div>
+</section>
+<section class="panel" id="connections" hidden>
+<h2>관찰과 근거 사이에 관계를 붙입니다.</h2>
+<p>개별 기록을 연결하면 다음 질문을 고르기 쉽습니다.</p>
+<div class="flow">
+<article class="card"><span class="kind">1 · 관찰</span><h3>층 표기가 혼동된다</h3></article>
+<article class="card"><span class="kind">2 · 연결한 기준</span><h3>층 이동 수단을 구분한다</h3></article>
+<article class="card"><span class="kind">3 · 새 질문</span><h3>이동 조건을 바꾸면 어떤 경로가 나올까?</h3></article>
+</div>
+</section>
+<section class="panel" id="actions" hidden>
+<h2>질문을 실제로 확인할 일로 바꿉니다.</h2>
+<p>선택한 기록에서 다음에 처리할 작업을 정하고, 점검 순서를 남깁니다.</p>
+<ol><li>샘플 지도에서 출발층과 목적층을 정합니다.</li><li>계단을 제외한 조건으로 같은 경로를 다시 찾아봅니다.</li><li>달라진 지점과 추가로 확인할 항목을 기록합니다.</li></ol>
+</section>
+</section>
+</main>
+<footer>포트폴리오용 예시 데이터로 구성한 체험입니다. 실제 서비스의 개인 기록 저장 공간은 로그인 후 제공됩니다.</footer>
+<script>
+const controls = document.querySelectorAll('nav button');
+for (const control of controls) {
+  control.addEventListener('click', () => {
+    for (const button of controls) {
+      const selected = button === control;
+      button.setAttribute('aria-pressed', String(selected));
+      document.getElementById(button.getAttribute('aria-controls')).hidden = !selected;
+    }
+  });
+}
+</script>
+</body></html>
