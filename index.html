@@ -48,6 +48,9 @@ img { display: block; width: 100%; }
 .header-link { color: var(--subtle); font-size: 14px; font-weight: 680; padding: 8px 0; }
 .header-link:hover { color: var(--blue-dark); }
 .header-link span { margin-left: 5px; }
+.header-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; column-gap: clamp(12px, 3vw, 24px); }
+.header-actions a, .brand { white-space: nowrap; }
+.header-download { color: var(--blue-dark); }
 .hero {
   display: grid;
   grid-template-columns: minmax(325px, .93fr) minmax(0, 1.12fr);
@@ -220,7 +223,10 @@ h1 em { color: var(--blue); font-style: normal; }
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="#top" class="brand">이의규</a>
-      <a href="#projects" class="header-link">프로젝트 <span aria-hidden="true">↓</span></a>
+      <nav class="header-actions" aria-label="페이지 메뉴">
+        <a href="#projects" class="header-link">프로젝트 <span aria-hidden="true">↓</span></a>
+        <a href="https://github.com/dldmlrb131/uikyu-project-portfolio/releases/download/portfolio-html/uikyu-portfolio.html" class="header-link header-download">HTML 다운로드 <span aria-hidden="true">↓</span></a>
+      </nav>
     </div>
   </header>
   <main>
